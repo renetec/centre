@@ -121,7 +121,7 @@ function App() {
         }}
         style={{
           position: 'absolute',
-          bottom: '20px',
+          bottom: '40px',
           left: '20px',
           color: 'white',
           background: 'rgba(0,0,0,0.6)',
@@ -148,7 +148,7 @@ function App() {
         rel="noopener noreferrer"
         style={{
           position: 'absolute',
-          bottom: '20px',
+          bottom: '40px',
           right: '20px',
           color: 'white',
           textDecoration: 'none',
