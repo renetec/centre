@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment, ContactShadows } from '@react-three/drei';
-import Avatar from './components/Avatar';
+import Avatar from './components/Real3DAvatar';
 import { speechText } from './speech';
 
 function App() {
@@ -114,33 +114,57 @@ function App() {
         </div>
       )}
 
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          handleSpeak(speechText);
-        }}
-        style={{
-          position: 'absolute',
-          top: '20px',
-          left: '20px',
-          color: 'white',
-          background: 'rgba(0,0,0,0.6)',
-          padding: '10px 20px',
-          borderRadius: '30px',
-          zIndex: 20,
-          pointerEvents: 'auto',
-          border: '1px solid rgba(255,255,255,0.3)',
-          fontSize: '14px',
-          backdropFilter: 'blur(4px)',
-          transition: 'background 0.3s',
-          cursor: 'pointer',
-          fontFamily: 'inherit'
-        }}
-        onMouseOver={(e) => e.target.style.background = 'rgba(0,0,0,0.8)'}
-        onMouseOut={(e) => e.target.style.background = 'rgba(0,0,0,0.6)'}
-      >
-        ⟳ Recommencer
-      </button>
+      <div style={{
+        position: 'absolute',
+        top: '20px',
+        left: '20px',
+        zIndex: 20,
+        display: 'flex',
+        gap: '10px'
+      }}>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleSpeak(speechText);
+          }}
+          style={{
+            color: 'white',
+            background: 'rgba(0,0,0,0.6)',
+            padding: '10px 20px',
+            borderRadius: '30px',
+            pointerEvents: 'auto',
+            border: '1px solid rgba(255,255,255,0.3)',
+            fontSize: '14px',
+            backdropFilter: 'blur(4px)',
+            cursor: 'pointer',
+            fontFamily: 'inherit'
+          }}
+        >
+          ⟳ Recommencer
+        </button>
+
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            window.speechSynthesis.cancel();
+            setIsSpeaking(false);
+          }}
+          style={{
+            color: 'white',
+            background: 'rgba(200,50,50,0.6)',
+            padding: '10px 20px',
+            borderRadius: '30px',
+            pointerEvents: 'auto',
+            border: '1px solid rgba(255,255,255,0.3)',
+            fontSize: '14px',
+            backdropFilter: 'blur(4px)',
+            cursor: 'pointer',
+            fontFamily: 'inherit'
+          }}
+        >
+          ⏹ Arrêter
+        </button>
+      </div>
 
       <a
         href="http://bs8oskcggc008gowk0008sc4.158.69.220.59.sslip.io"
